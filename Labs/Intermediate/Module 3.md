@@ -14,7 +14,7 @@ FCMB is implementing a data analytics system to **identify high-value customers*
 - Recognize profitable accounts
 - Spot customers making large or unusual transactions
 - Summarize performance metrics per branch
-- 
+
 This lab introduces the power of **subqueries in SQL** — nested queries that allow complex logic and conditional analysis within banking datasets. Participants will learn how to write and optimize subqueries to support deeper insights and operational intelligence.
 
 Subqueries allow us to break these questions down into small, composable queries and embed them into larger logic blocks.
