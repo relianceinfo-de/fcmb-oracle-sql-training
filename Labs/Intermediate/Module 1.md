@@ -1,5 +1,5 @@
 ---
-lab:
+Lab:
     Module: 'Expanding SQL Skills​ (Advanced Querying Techniques)'
     Use Case: 'Identifying and Prioritizing High-Value Account Segments Across Branches'
 ---
