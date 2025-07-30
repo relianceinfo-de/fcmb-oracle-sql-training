@@ -25,4 +25,26 @@ This lab uses SQL techniques such as `GROUP BY`, `HAVING`, and `ORDER BY` to add
 SELECT account_type, SUM(balance) AS total_balance
 FROM bank_accounts
 GROUP BY account_type;
+ ```
+### Step 2: Filter for High-Performing Account Types
 
+```sql
+SELECT account_type, AVG(balance) AS average_balance
+FROM bank_accounts
+GROUP BY account_type
+HAVING AVG(balance) > 10000;
+ ```
+
+### Step 3: Rank Customers by Value Within Branches
+
+```sql
+SELECT customer_id, branch_id, account_balance
+FROM customer_accounts
+ORDER BY branch_id ASC, account_balance DESC;
+ ```
+
+### Business Impact
+#### By combining these insights, FCMB can:
+1. Realign product and marketing strategies based on account performance
+1. Launch loyalty programs targeting valuable customers
+1. Allocate relationship managers to branches with high-value clientele
