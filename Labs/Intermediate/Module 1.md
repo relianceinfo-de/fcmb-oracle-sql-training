@@ -1,6 +1,6 @@
 ---
 Lab:
-    Module: 'Expanding SQL Skills​ (Advanced Querying Techniques)'
+    Module 1: 'Expanding SQL Skills​ (Advanced Querying Techniques)'
     Use Case: 'Identifying and Prioritizing High-Value Account Segments Across Branches'
 ---
 
