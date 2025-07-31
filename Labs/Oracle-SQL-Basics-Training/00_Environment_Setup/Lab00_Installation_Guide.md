@@ -13,7 +13,7 @@
 CONNECT system/oracle123@XE
 SELECT * FROM v$version;
 
-```markdown
+```
 ## macOS Installation (Docker Method)
 
 ### 1. Install Docker Desktop
@@ -82,5 +82,5 @@ SELECT 1 FROM dual;
 | ORA-12505 | Check SID name (use `XE` or `XEPDB1` for Docker) |
 
 > **Note**: For Docker installations, use `XEPDB1` as SID instead of `XE`
-```
+
 
