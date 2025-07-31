@@ -1,4 +1,6 @@
-This lab focuses on understanding and applying indexing strategies and using EXPLAIN PLAN to optimize query performance in an Oracle SQL environment.
+# Module 4: Indexing and Performance Optimization
+
+This lab focuses on understanding and applying indexing strategies and using `EXPLAIN PLAN` to optimize query performance in an Oracle SQL environment.
 
 ## Scenario
 
