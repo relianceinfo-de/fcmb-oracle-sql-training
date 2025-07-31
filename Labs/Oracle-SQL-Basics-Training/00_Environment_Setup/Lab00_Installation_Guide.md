@@ -13,8 +13,6 @@
 CONNECT system/oracle123@XE
 SELECT * FROM v$version;
 
----
-
 ## macOS Installation (Docker Method)
 
 ### 1. Install Docker Desktop
