@@ -1,3 +1,4 @@
+```sql
 XE =
   (DESCRIPTION =
     (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
