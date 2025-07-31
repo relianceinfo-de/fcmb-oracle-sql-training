@@ -13,6 +13,7 @@
 CONNECT system/oracle123@XE
 SELECT * FROM v$version;
 
+```markdown
 ## macOS Installation (Docker Method)
 
 ### 1. Install Docker Desktop
@@ -35,6 +36,10 @@ docker run -d \
 docker exec -it oracle-xe sqlplus system/oracle123@//localhost/XEPDB1
 ```
 
+### Verify Installation
+```sql
+SELECT * FROM v$version;
+```
 ---
 
 ## Linux Installation
