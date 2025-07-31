@@ -149,7 +149,7 @@ Not all columns benefit from indexing. High update frequency or very low cardina
 
 #### Task:
 
-1. Consider the `phone_number` column in the `Customers` table. Would a B-tree index be generally beneficial or detrimental for this column if `phone_number` is frequently updated (e.g., customers changing their contact details)? Explain your reasoning.
+1. Consider the `phone_number` column in the `Customers` table. Would a B-tree index be generally beneficial or detrimental for this column if `phone_number` is frequently updated (e.g., customers changing their contact details)? Give reasons for your answer.
 
-2. Consider the `branch_id` column in `Bank_Accounts`. If there are only 3 branches in the entire bank, but millions of accounts, would a B-tree index be the most effective choice, or would a Bitmap index be more suitable, or no index at all? Explain your reasoning.
+2. Consider the `branch_id` column in `Bank_Accounts`. If there are only 3 branches in the entire bank, but millions of accounts, would a B-tree index be the most effective choice, or would a Bitmap index be more suitable, or no index at all? Give reasons for your answer.
 
