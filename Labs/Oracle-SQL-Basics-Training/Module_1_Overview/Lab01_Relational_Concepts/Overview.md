@@ -1,4 +1,3 @@
-```markdown
 # Module 1: Overview of SQL and Oracle Database
 
 ## Learning Outcomes
@@ -9,7 +8,9 @@
 ---
 
 ## Relational Database Concepts
+ A green and purple squares with a key
 
+AI-generated content may be incorrect.
 ### What is a Relational Database?
 A type of database that stores and provides access to data points related to one another. Based on E.F. Codd's 1970 model, it organizes data into tables of columns and rows, with unique keys identifying each row.
 
