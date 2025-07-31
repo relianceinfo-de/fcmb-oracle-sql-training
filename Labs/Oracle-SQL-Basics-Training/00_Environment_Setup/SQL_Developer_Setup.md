@@ -1,11 +1,11 @@
 ## **2. SQL Developer Installation**
 
 ### **All Platforms**
-```markdown
-1. **Download**:  
+``
+### 1. **Download**:  
    [SQL Developer Download](https://www.oracle.com/database/sqldeveloper/)
 
-2. **Platform-Specific Steps**:  
+### 2. **Platform-Specific Steps**:  
 
    **Windows**:  
    - Run `.exe` installer  
@@ -14,12 +14,13 @@
    **macOS**:  
    ```bash
    brew install --cask oracle-sql-developer
-
+   ```
    **Linux**
+   ```bash
    unzip sqldeveloper-*.zip
 ./sqldeveloper/sqldeveloper.sh
-
-2. Create new connection:
+```
+### 2. Create new connection:
    - Name: `TrainingDB`
    - Username: `system`
    - Password: `oracle123`
@@ -57,8 +58,8 @@ SELECT * FROM v$version;
 
 -- Verify banking schema
 SELECT table_name FROM all_tables WHERE owner = 'BANKING';
-
-**Output**
+```
+### **Output**
 Oracle Database 21c Express Edition Release 21.0.0.0.0
 CUSTOMERS
 ACCOUNTS
