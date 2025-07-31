@@ -1,7 +1,7 @@
 ## **2. SQL Developer Installation**
 
 ### **All Platforms**
-``
+
 ### 1. **Download**:  
    [SQL Developer Download](https://www.oracle.com/database/sqldeveloper/)
 
@@ -61,6 +61,9 @@ SELECT table_name FROM all_tables WHERE owner = 'BANKING';
 ```
 ### **Output**
 Oracle Database 21c Express Edition Release 21.0.0.0.0
+
 CUSTOMERS
+
 ACCOUNTS
+
 TRANSACTIONS
