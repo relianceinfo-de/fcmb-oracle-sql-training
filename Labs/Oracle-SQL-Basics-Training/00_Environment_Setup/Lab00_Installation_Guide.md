@@ -13,8 +13,9 @@
 CONNECT system/oracle123@XE
 SELECT * FROM v$version;
 
+---
 
-## **MacOS (Docker Method)**
+## MacOS (Docker Method)
 ```markdown
 1. **Install Docker Desktop**:  
    ```bash
