@@ -15,6 +15,7 @@ SELECT * FROM v$version;
 
 ---
 
+**## Verify Installation**
 ## MacOS (Docker Method)
 ```markdown
 1. **Install Docker Desktop**:  
