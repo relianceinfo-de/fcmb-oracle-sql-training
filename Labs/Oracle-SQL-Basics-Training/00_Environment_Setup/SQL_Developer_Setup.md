@@ -28,13 +28,13 @@
    - Port: `1521`
    - SID: `XE`
 ---
-
+```
 -- Check database version
 SELECT * FROM v$version;
 
 -- Verify banking schema
 SELECT table_name FROM all_tables WHERE owner = 'BANKING';
-
+```
 ### **Output**
 Oracle Database 21c Express Edition Release 21.0.0.0.0
 
