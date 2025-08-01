@@ -1,103 +1,128 @@
-
-# Module 3 - Banking Database Schema Management
+# Module 3: Banking Database Schema Management
 
 ## Learning Outcomes
-- Design tables for core banking operations  
-- Implement constraints for data integrity  
-- Manage schema changes in production environments  
+- Modify existing banking tables for compliance  
+- Implement advanced constraints  
+- Manage customer data lifecycle  
 
 ---
 
-## Lab: FCMB Customer Onboarding System
+## Lab: FCMB Customer Data Management
 
 ### Business Scenario  
-FCMB needs to:  
-1. Create a new `customer_kyc` table for enhanced compliance  
-2. Modify `accounts` table to support new digital banking products  
-3. Safely archive inactive customers  
+Enhance the existing system to:  
+1. Track additional KYC documentation  
+2. Support digital banking features  
+3. Implement CBN-mandated data retention  
 
 ---
 
-### Exercise 1: Create KYC Tables  
-```sql
--- Core customer table
-CREATE TABLE fcmb_customers (
-    customer_id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    bvn VARCHAR2(11) UNIQUE NOT NULL,
-    full_name VARCHAR2(100) NOT NULL,
-    tier_level VARCHAR2(10) CHECK (tier_level IN ('BASIC','PREMIUM','PRIVATE'))
-    TABLESPACE fcmb_data;
+## Exercise 1: KYC System Enhancement
 
--- KYC documents tracking
-CREATE TABLE customer_kyc (
-    doc_id NUMBER PRIMARY KEY,
-    customer_id NUMBER REFERENCES fcmb_customers,
-    doc_type VARCHAR2(20) CHECK (doc_type IN ('ID','UTILITY','SIGNATURE')),
-    verified_date DATE DEFAULT SYSDATE
-);
+### Verify Existing Structure
+```sql
+-- Check current customer table
+SELECT column_name, data_type, nullable 
+FROM all_tab_columns 
+WHERE table_name = 'FCMB_CUSTOMERS';
+
+-- Review existing constraints
+SELECT constraint_name, constraint_type, search_condition
+FROM all_constraints
+WHERE table_name = 'FCMB_CUSTOMERS';
 ```
 
-**Business Rules**:  
-- BVN must be unique and mandatory  
-- Tier levels determine service eligibility  
+### Add KYC Tracking Columns
+```sql
+ALTER TABLE fcmb_customers ADD (
+    id_verified CHAR(1) DEFAULT 'N' CHECK (id_verified IN ('Y','N')),
+    utility_verified CHAR(1) DEFAULT 'N',
+    verification_date DATE
+);
+
+COMMENT ON COLUMN fcmb_customers.id_verified IS 'CBN requirement for Tier 3 accounts';
+```
 
 ---
 
-### Exercise 2: Modify Accounts Table  
+## Exercise 2: Digital Banking Upgrade
+
+### Modify Accounts Table
 ```sql
--- Add digital banking columns
+-- Check current digital banking features
+SELECT mobile_app_enabled, ussd_pin 
+FROM fcmb_accounts 
+WHERE ROWNUM < 5;
+
+-- Add new digital features
 ALTER TABLE fcmb_accounts ADD (
-    mobile_app_enabled CHAR(1) DEFAULT 'N' CHECK (mobile_app_enabled IN ('Y','N')),
-    ussd_pin VARCHAR2(4),
-    last_activity_date DATE
+    biometric_auth CHAR(1) DEFAULT 'N' CHECK (biometric_auth IN ('Y','N')),
+    last_mobile_login DATE
 );
 
--- Add constraint for dormant accounts
-ALTER TABLE fcmb_accounts 
-ADD CONSTRAINT chk_dormant 
-CHECK (
-    (last_activity_date > ADD_MONTHS(SYSDATE, -12) OR 
-    status = 'DORMANT')
-);
+-- Update existing records
+UPDATE fcmb_accounts 
+SET mobile_app_enabled = 'Y'
+WHERE account_type IN ('SAVINGS','CURRENT') 
+AND open_date > ADD_MONTHS(SYSDATE, -6);
 ```
 
 ---
 
-### Exercise 3: Safe Data Archiving  
+## Exercise 3: Data Lifecycle Management
+
+### Archive Inactive Customers
 ```sql
--- Step 1: Create archive table
-CREATE TABLE archived_customers 
-AS SELECT * FROM fcmb_customers WHERE 1=0;
+-- Create temporary reporting table
+CREATE GLOBAL TEMPORARY TABLE temp_inactive_customers (
+    customer_id NUMBER,
+    last_activity_date DATE
+) ON COMMIT PRESERVE ROWS;
 
--- Step 2: Archive inactive customers
-INSERT INTO archived_customers
-SELECT * FROM fcmb_customers 
-WHERE customer_id IN (
-    SELECT customer_id 
-    FROM fcmb_accounts 
-    GROUP BY customer_id
-    HAVING MAX(last_activity_date) < ADD_MONTHS(SYSDATE, -24)
-);
+-- Identify candidates
+INSERT INTO temp_inactive_customers
+SELECT 
+    c.customer_id,
+    MAX(a.last_activity_date) AS last_activity
+FROM fcmb_customers c
+JOIN fcmb_accounts a ON c.customer_id = a.customer_id
+GROUP BY c.customer_id
+HAVING MAX(a.last_activity_date) < ADD_MONTHS(SYSDATE, 24);
 
--- Step 3: Verify before deletion
-SELECT COUNT(*) FROM archived_customers;
+-- Review before archiving
+SELECT COUNT(*) AS inactive_customers FROM temp_inactive_customers;
 
--- Step 4: Execute deletion (with transaction safety)
+-- Execute archival (with audit)
 BEGIN
-  DELETE FROM fcmb_customers 
-  WHERE customer_id IN (SELECT customer_id FROM archived_customers);
+  INSERT INTO fcmb_audit_log
+  SELECT 
+      customer_id, 
+      'ARCHIVAL', 
+      'Customer marked inactive', 
+      SYSDATE 
+  FROM temp_inactive_customers;
+  
+  UPDATE fcmb_customers
+  SET status = 'INACTIVE'
+  WHERE customer_id IN (SELECT customer_id FROM temp_inactive_customers);
+  
   COMMIT;
-EXCEPTION
-  WHEN OTHERS THEN ROLLBACK;
 END;
 ```
 
 ---
 
 ## Key Takeaways  
-| Concept | Banking Application |  
-|---------|---------------------|  
-| Constraints | Enforce CBN KYC rules |  
-| ALTER TABLE | Roll out new features without downtime |  
-| Safe Deletion | Compliance with data retention policies |  
+| Concept | Banking Implementation |  
+|---------|------------------------|  
+| Schema Evolution | Added biometric authentication tracking |  
+| Data Governance | Compliant archival process with audit trail |  
+| Regulatory Alignment | CBN verification requirements |  
+
+```mermaid
+flowchart TD
+    A[Existing Tables] --> B[Add KYC Flags]
+    A --> C[Enable Digital Features]
+    A --> D[Implement Archival]
+```
 
