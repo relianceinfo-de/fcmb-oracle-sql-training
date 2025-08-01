@@ -1,5 +1,5 @@
 
-# Overview of SQL and Oracle Database
+# Module 1: Overview of SQL and Oracle Database
 
 ## Learning Outcomes
 - Understand relational databases through banking scenarios
