@@ -9,14 +9,12 @@
 ---
 
 ## Relational Database Concepts 
-``
+```
 CREATE TABLE fcmb_accounts (
     account_no VARCHAR2(10) PRIMARY KEY,
     customer_id NUMBER REFERENCES fcmb_customers,
     account_type VARCHAR2(20) CHECK (account_type IN ('SAVINGS','CURRENT','DOMICILIARY'));
-```
 
----
 ```
 ## Lab: High-Value Customer Analysis
 
