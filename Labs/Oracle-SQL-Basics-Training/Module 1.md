@@ -1,3 +1,24 @@
+```markdown
+```
+# Overview of SQL and Oracle Database
+
+## Learning Outcomes
+- Understand relational databases through banking scenarios
+- Explain SQL's role in financial data analysis
+- Describe Oracle architecture in bank infrastructure contexts
+
+---
+
+## Relational Database Concepts (Banking Focus)
+
+CREATE TABLE fcmb_accounts (
+    account_no VARCHAR2(10) PRIMARY KEY,
+    customer_id NUMBER REFERENCES fcmb_customers,
+    account_type VARCHAR2(20) CHECK (account_type IN ('SAVINGS','CURRENT','DOMICILIARY'));
+```
+
+---
+```
 ## Lab: High-Value Customer Analysis
 
 ### Business Scenario
@@ -43,4 +64,3 @@ pie
     "Current" : 35
     "Domiciliary" : 20
 ```
-
