@@ -1,5 +1,4 @@
-```markdown
-```
+
 # Overview of SQL and Oracle Database
 
 ## Learning Outcomes
