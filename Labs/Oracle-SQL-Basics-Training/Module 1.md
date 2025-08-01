@@ -8,8 +8,8 @@
 
 ---
 
-## Relational Database Concepts (Banking Focus)
-
+## Relational Database Concepts 
+``
 CREATE TABLE fcmb_accounts (
     account_no VARCHAR2(10) PRIMARY KEY,
     customer_id NUMBER REFERENCES fcmb_customers,
