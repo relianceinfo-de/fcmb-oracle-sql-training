@@ -36,27 +36,27 @@ WHERE status = 'ACTIVE';
 
 ---
 
-## Exercise 2: Data Type Implementation
+## Exercise 2: Data Type Exploration
 
-### Banking Data Types Table
-| Data Type | Banking Use | Example Column |
-|-----------|------------|----------------|
-| `VARCHAR2` | Customer names | `customer_name VARCHAR2(100)` |
-| `NUMBER` | Account balances | `balance NUMBER(15,2)` |
-| `DATE` | Transaction dates | `txn_date DATE` |
-| `CLOB` | Customer memos | `kyc_notes CLOB` |
-
-### Account Table Creation
+### Banking Data Types in Practice
 ```sql
-CREATE TABLE fcmb_accounts (
-    account_no VARCHAR2(10) PRIMARY KEY,  -- NUBAN format
-    customer_id NUMBER NOT NULL,
-    account_type VARCHAR2(20) CHECK (account_type IN ('SAVINGS','CURRENT','DOMICILIARY')),
-    balance NUMBER(15,2) DEFAULT 0.00,
-    open_date DATE DEFAULT SYSDATE,
-    CONSTRAINT fk_customer FOREIGN KEY (customer_id) REFERENCES fcmb_customers
-) TABLESPACE fcmb_data;
+-- View column data types
+SELECT 
+    column_name,
+    data_type,
+    data_length,
+    data_precision,
+    data_scale
+FROM all_tab_columns
+WHERE table_name = 'FCMB_ACCOUNTS';
 ```
+
+**Expected Output**:
+| COLUMN_NAME | DATA_TYPE | DATA_LENGTH | DATA_PRECISION | DATA_SCALE |
+|-------------|-----------|-------------|----------------|------------|
+| ACCOUNT_NO | VARCHAR2 | 10 | null | null |
+| BALANCE | NUMBER | null | 15 | 2 |
+| OPEN_DATE | DATE | null | null | null |
 
 ---
 
@@ -65,62 +65,74 @@ CREATE TABLE fcmb_accounts (
 ### High-Value Customers
 ```sql
 SELECT 
-    c.customer_name,
+    c.first_name || ' ' || c.last_name AS customer_name,
     a.account_no,
-    a.balance,
+    TO_CHAR(a.balance, 'L999,999,999.00') AS formatted_balance,
     CASE 
         WHEN a.balance >= 5000000 THEN 'Priority'
-        WHEN a.balance >= 1000000 THEN 'Standard'
+        WHEN a.balance >= 1000000 THEN 'Standard' 
         ELSE 'Basic'
-    END AS customer_segment
+    END AS customer_segment,
+    b.branch_name
 FROM fcmb_customers c
 JOIN fcmb_accounts a ON c.customer_id = a.customer_id
-WHERE a.account_type = 'SAVINGS'
-  AND a.balance > 0
+JOIN fcmb_branches b ON a.branch_code = b.branch_code
+WHERE a.status = 'ACTIVE'
+  AND a.last_activity_date > ADD_MONTHS(SYSDATE, -6)
 ORDER BY a.balance DESC;
 ```
 
 **Best Practices**:
-1. Use explicit JOINs instead of WHERE joins
-2. Always include ORDER BY for financial reports
-3. Document segment thresholds in comments
+1. Use explicit JOINs for clarity
+2. Format currency for readability
+3. Include branch information for context
 
 ---
 
 ## Business Application
 
 ### Sample Output
-| Customer Name | Account No | Balance (₦) | Segment |
-|---------------|------------|-------------|---------|
-| Adeola Johnson | 1234567890 | 12,450,000 | Priority |
-| Chinedu Okoro | 9876543210 | 8,200,000 | Priority |
+| CUSTOMER_NAME | ACCOUNT_NO | FORMATTED_BALANCE | SEGMENT | BRANCH_NAME |
+|---------------|------------|-------------------|---------|-------------|
+| Adeola Johnson | 1234567890 | ₦12,450,000.00 | Priority | Lagos Main |
+| Chinedu Okoro | 9876543210 | ₦8,200,000.00 | Priority | Abuja Central |
 
 ### Impact Analysis
 ```mermaid
 pie
-    title Account Segmentation
-    "Priority (₦5M+)" : 28
-    "Standard (₦1M-5M)" : 45
-    "Basic (<₦1M)" : 27
+    title Customer Segmentation (₦)
+    "Priority (5M+)" : 28
+    "Standard (1M-5M)" : 45
+    "Basic (<1M)" : 27
 ```
 
 ---
 
 ## Key Takeaways
-1. **Precision Matters**:  
-   - Use `NUMBER(15,2)` for monetary values  
-   - Always specify scale/precision
-
-2. **Readability**:  
+1. **Data Discovery**:
    ```sql
-   -- Good
-   SELECT account_no, balance FROM accounts;
+   -- View table structure
+   DESC fcmb_accounts;
    
-   -- Avoid
-   SELECT * FROM accounts;
+   -- Check constraints
+   SELECT constraint_name, constraint_type 
+   FROM all_constraints
+   WHERE table_name = 'FCMB_ACCOUNTS';
    ```
 
-3. **Compliance**:  
-   - Alias sensitive columns (e.g., `AS "Masked BVN"`)  
-   - Include audit filters (`WHERE is_audited = 'Y'`)
+2. **Secure Formatting**:
+   ```sql
+   -- Mask sensitive data
+   SELECT 
+       SUBSTR(account_no, 1, 3) || '****' || SUBSTR(account_no, -3) AS masked_account,
+       REGEXP_REPLACE(bvn, '(\d{3})\d{4}(\d{4})', '\1****\2') AS masked_bvn
+   FROM fcmb_customers;
+   ```
 
+3. **Performance**:
+   ```sql
+   -- Explain plan for optimization
+   EXPLAIN PLAN FOR
+   SELECT * FROM fcmb_accounts WHERE branch_code = 'LAG01';
+   SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+   ```
