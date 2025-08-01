@@ -1,63 +1,54 @@
-
 # Module 1: Overview of SQL and Oracle Database
 
 ## Learning Outcomes
-- Understand relational databases through banking scenarios
-- Explain SQL's role in financial data analysis
-- Describe Oracle architecture in bank infrastructure contexts
+- Design compliant banking database schemas  
+- Implement CBN-mandated account structures  
+- Optimize Oracle storage for financial data  
 
 ---
 
-## Relational Database Concepts 
-```
-CREATE TABLE fcmb_accounts (
-    account_no VARCHAR2(10) PRIMARY KEY,
-    customer_id NUMBER REFERENCES fcmb_customers,
-    account_type VARCHAR2(20) CHECK (account_type IN ('SAVINGS','CURRENT','DOMICILIARY'));
+## Relational Database Concepts (FCMB Implementation)
 
+### Core Banking Tables
+```mermaid
+erDiagram
+    CUSTOMERS ||--o{ ACCOUNTS : "owns"
+    ACCOUNTS ||--o{ TRANSACTIONS : "has"
+    BRANCHES ||--o{ ACCOUNTS : "services"
 ```
-## Lab: High-Value Customer Analysis
+---
+
+## Lab: Account Status Audit
 
 ### Business Scenario
-Identify priority customers across FCMB branches for:
-- Targeted wealth management
-- Product optimization
-- RM allocation
+Identify accounts requiring:
+- Dormancy marking (no activity for 12+ months)  
+- BVN validation review  
+- Digital onboarding completion  
 
-### Step 1: Aggregate Balances
 ```sql
 SELECT 
-    branch_id,
-    account_type,
-    SUM(balance) AS total_assets
-FROM fcmb_accounts
-WHERE status = 'ACTIVE'
-GROUP BY branch_id, account_type;
+    a.account_no,
+    c.first_name || ' ' || c.last_name AS customer_name,
+    a.balance,
+    CASE 
+        WHEN a.last_activity_date < ADD_MONTHS(SYSDATE, -12) THEN 'MARK_DORMANT'
+        WHEN c.kyc_verified = 'N' THEN 'VERIFY_BVN'
+        WHEN a.mobile_app_enabled = 'N' THEN 'DIGITAL_ONBOARDING'
+        ELSE 'NO_ACTION'
+    END AS required_action
+FROM fcmb_accounts a
+JOIN fcmb_customers c ON a.customer_id = c.customer_id
+WHERE a.status = 'ACTIVE';
 ```
 
-### Step 2: Filter VIP Segments
-```sql
-SELECT 
-    customer_id,
-    branch_id,
-    total_balance
-FROM (
-    SELECT 
-        customer_id,
-        branch_id,
-        SUM(balance) AS total_balance,
-        RANK() OVER(PARTITION BY branch_id ORDER BY SUM(balance) DESC) AS cust_rank
-    FROM fcmb_accounts
-    GROUP BY customer_id, branch_id
-) 
-WHERE cust_rank <= 10;  -- Top 10 per branch
-```
+---
 
-### Business Impact
-```mermaid
-pie
-    title Asset Distribution
-    "Savings" : 45
-    "Current" : 35
-    "Domiciliary" : 20
-```
+## Key Takeaways
+| Concept | FCMB Implementation |
+|---------|---------------------|
+| Data Integrity | `CHECK` constraints for balances/status |
+| Performance | Branch-based partitioning |
+| Compliance | Full transaction audit trail |
+| Scalability | Tablespace segregation |
+
