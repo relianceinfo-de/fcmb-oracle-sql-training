@@ -1,4 +1,4 @@
-# Module 5 - Transactions and Concurrency Control
+# Module 5: Transactions and Concurrency Control
 
 This lab focuses on understanding ACID properties, implementing transaction control (`COMMIT`, `ROLLBACK`, `SAVEPOINT`), and managing concurrency with `SELECT FOR UPDATE`.
 

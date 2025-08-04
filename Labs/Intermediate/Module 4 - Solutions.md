@@ -1,4 +1,4 @@
-# Module 4 - Solutions
+# Module 4: Solutions
 
 ### Exercise 1: Analyzing an Inefficient Query - Solution
 

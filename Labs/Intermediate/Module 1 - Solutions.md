@@ -1,4 +1,4 @@
-# Module 1 - Solutions
+# Module 1: Solutions
 
 ### Exercise 1: Using GROUP BY to Aggregate Data - Solution
 

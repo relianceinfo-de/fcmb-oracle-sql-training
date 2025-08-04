@@ -1,4 +1,4 @@
-# Module 5 - Solutions
+# Module 5: Solutions
 
 ### Exercise 1: Demonstrating Atomicity and Rollback - Solution
 
