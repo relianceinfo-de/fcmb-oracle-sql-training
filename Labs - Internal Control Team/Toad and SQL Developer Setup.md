@@ -11,8 +11,7 @@
 
 ### 1. Download and Install
 [Download SQL Developer](https://www.oracle.com/database/sqldeveloper/)  
-![Download Page]
-(<img width="975" height="488" alt="image" src="https://github.com/user-attachments/assets/3177f1a4-c3db-4b70-8d4b-853ebb7eea16" />).
+![Download Page](<img width="975" height="488" alt="image" src="https://github.com/user-attachments/assets/0a0c78fb-eb40-40f5-be28-214cacb8581f" />).
 
 **Installation Steps**:
 1. Unzip the downloaded file
@@ -20,25 +19,29 @@
 3. Accept default settings
 
 ### 2. Create Database Connection
-![New Connection](https://i.imgur.com/5vVWz9k.png)
+![Click on Create Connection Manually](<img width="975" height="518" alt="image" src="https://github.com/user-attachments/assets/7b692de1-d2ae-4f9d-80a2-90c1f6c7c37e" />)
 
+#### Open your command prompt and run the below scripts
+![Run scripts as typed](<img width="975" height="862" alt="image" src="https://github.com/user-attachments/assets/749fb4b4-7349-4aab-b461-79377b800a6c" />)
+
+#### On the pop-up window, enter below details:
 ```sql
 Connection Name: FCMB_Prod
 Username: SYS  Role: SYSDBA
-Password: ********
+Password: sys123
 Hostname: localhost
 Port: 1521
-Service Name: 
+Service Name: free
 ```
 
 **Test and Connect**  
-![Successful Connection](https://i.imgur.com/8T7b4Nd.png)
-
+![Successful Connection](<img width="975" height="519" alt="image" src="https://github.com/user-attachments/assets/86390d5c-02ac-41d6-8827-c40c5e3f10a0" />)
+![Confirm connection status: success](<img width="975" height="517" alt="image" src="https://github.com/user-attachments/assets/8c0959e7-5c52-4ba6-9a72-71c98e652662" />)
 ### 3. Key Features
 - **Object Navigator**: Browse tables, views, procedures  
-  ![Object Navigator](https://i.imgur.com/mN2XK1U.png)
+  ![Object Navigator](<img width="353" height="822" alt="image" src="https://github.com/user-attachments/assets/ce0be952-6e93-42fa-a726-ad6c0413f62b" />)
 - **Query Builder**: Drag-and-drop interface  
-  ![Query Builder](https://i.imgur.com/9pZJY1E.png)
+  ![Query Builder](<img width="773" height="548" alt="image" src="https://github.com/user-attachments/assets/dc25a0d5-df60-41fb-94d6-f4304c95313a" />)
 
 ---
 
