@@ -65,17 +65,19 @@ Service Name: free
 2. Select "Complete Installation"
 3. License activation (provide your license key)
 
-![Toad Install](<img width="975" height="622" alt="image" src="https://github.com/user-attachments/assets/352d3589-9a90-4574-a99c-a56ed09fcbd9" />)
+#### Toad Install
+<img width="975" height="622" alt="image" src="https://github.com/user-attachments/assets/352d3589-9a90-4574-a99c-a56ed09fcbd9" />
 
 ### 2. Configure Connection
 <img width="975" height="708" alt="image" src="https://github.com/user-attachments/assets/445057a9-0d9c-4ac0-9ded-9230cf7b317d" />
 
-![Toad Connection](<img width="975" height="710" alt="image" src="https://github.com/user-attachments/assets/857d4aa2-0b72-4814-a79f-0524e299c652" />)
+#### Toad Connection
+<img width="975" height="710" alt="image" src="https://github.com/user-attachments/assets/857d4aa2-0b72-4814-a79f-0524e299c652" />
 
 <img width="975" height="518" alt="image" src="https://github.com/user-attachments/assets/0b6e7703-98b4-4d65-886a-e027cfe27b71" />
 
 ```sql
-Oracle Home: OraClient19Home1
+Oracle Home: OraDB23Home1
 Username: sys
 Password: sys123
 Connect As: Normal
@@ -86,9 +88,9 @@ SID: FREE
 
 ### 3. Key Features
 - **Schema Browser**: Table data visualization  
-  ![Schema Browser](<img width="975" height="517" alt="image" src="https://github.com/user-attachments/assets/9a55c23d-c201-42bd-a216-fc88dc6c458d" />)
+  <img width="975" height="517" alt="image" src="https://github.com/user-attachments/assets/9a55c23d-c201-42bd-a216-fc88dc6c458d" />
 - **Code Analysis**: PL/SQL debugging  
-  ![Code Analysis](<img width="1920" height="1022" alt="image" src="https://github.com/user-attachments/assets/78d0d642-83c7-4244-a412-af1f58377b0a" />)
+  <img width="1920" height="1022" alt="image" src="https://github.com/user-attachments/assets/78d0d642-83c7-4244-a412-af1f58377b0a" />
 
 ---
 
