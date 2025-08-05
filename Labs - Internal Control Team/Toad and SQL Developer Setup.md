@@ -12,7 +12,7 @@
 ### 1. Download and Install
 [Download SQL Developer](https://www.oracle.com/database/sqldeveloper/)  
 
-#### Download Page
+#### Download Page (Click on Download SQL Developer) option. 
  <img width="975" height="488" alt="image" src="https://github.com/user-attachments/assets/455b06b0-1877-4615-87b3-d441876ca7d9" />
 
 
