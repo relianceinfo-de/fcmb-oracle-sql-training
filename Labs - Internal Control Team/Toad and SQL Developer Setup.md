@@ -11,8 +11,9 @@
 
 ### 1. Download and Install
 [Download SQL Developer](https://www.oracle.com/database/sqldeveloper/)  
+```markdown
 ![Download Page](<img width="975" height="488" alt="image" src="https://github.com/user-attachments/assets/0a0c78fb-eb40-40f5-be28-214cacb8581f" />).
-
+```
 **Installation Steps**:
 1. Unzip the downloaded file
 2. Run `sqldeveloper.exe` (Windows) or `sqldeveloper.sh` (Linux/Mac)
