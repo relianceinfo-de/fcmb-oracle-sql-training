@@ -74,7 +74,7 @@ Service Name: free
 #### Toad Connection
 <img width="975" height="710" alt="image" src="https://github.com/user-attachments/assets/857d4aa2-0b72-4814-a79f-0524e299c652" />
 
-#### A successful connection should be shown by the screen below:
+#### A successful connection should be as the screen below:
 <img width="975" height="518" alt="image" src="https://github.com/user-attachments/assets/0b6e7703-98b4-4d65-886a-e027cfe27b71" />
 
 #### Replace the credentials below on the connection window.
