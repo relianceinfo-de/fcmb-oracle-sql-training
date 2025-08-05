@@ -13,7 +13,8 @@
 [Download SQL Developer](https://www.oracle.com/database/sqldeveloper/)  
 
 #### Download Page
-<img width="975" height="488" alt="image" src="https://github.com/user-attachments/assets/0a0c78fb-eb40-40f5-be28-214cacb8581f" />
+ <img width="975" height="488" alt="image" src="https://github.com/user-attachments/assets/455b06b0-1877-4615-87b3-d441876ca7d9" />
+
 
 **Installation Steps**:
 1. Unzip the downloaded file
@@ -21,12 +22,14 @@
 3. Accept default settings
 
 ### 2. Create Database Connection
-![Click on Create Connection Manually](<img width="975" height="518" alt="image" src="https://github.com/user-attachments/assets/7b692de1-d2ae-4f9d-80a2-90c1f6c7c37e" />)
+#### Click on Create Connection Manually
+ <img width="975" height="518" alt="image" src="https://github.com/user-attachments/assets/7b692de1-d2ae-4f9d-80a2-90c1f6c7c37e" />
 
 #### Open your command prompt and run the below scripts
-![Run scripts as typed](<img width="975" height="862" alt="image" src="https://github.com/user-attachments/assets/749fb4b4-7349-4aab-b461-79377b800a6c" />)
+#### Run scripts as typed
+ <img width="975" height="862" alt="image" src="https://github.com/user-attachments/assets/749fb4b4-7349-4aab-b461-79377b800a6c" />
 
-#### On the pop-up window, enter below details:
+#### On the pop-up window in oracle, enter below details:
 ```sql
 Connection Name: FCMB_Prod
 Username: SYS  Role: SYSDBA
@@ -37,13 +40,18 @@ Service Name: free
 ```
 
 **Test and Connect**  
-![Successful Connection](<img width="975" height="519" alt="image" src="https://github.com/user-attachments/assets/86390d5c-02ac-41d6-8827-c40c5e3f10a0" />)
-![Confirm connection status: success](<img width="975" height="517" alt="image" src="https://github.com/user-attachments/assets/8c0959e7-5c52-4ba6-9a72-71c98e652662" />)
+#### Successful Connection
+ <img width="975" height="519" alt="image" src="https://github.com/user-attachments/assets/86390d5c-02ac-41d6-8827-c40c5e3f10a0" />
+
+#### Confirm connection status: success.
+ <img width="975" height="517" alt="image" src="https://github.com/user-attachments/assets/8c0959e7-5c52-4ba6-9a72-71c98e652662" />
+
 ### 3. Key Features
 - **Object Navigator**: Browse tables, views, procedures  
-  ![Object Navigator](<img width="353" height="822" alt="image" src="https://github.com/user-attachments/assets/ce0be952-6e93-42fa-a726-ad6c0413f62b" />)
+ <img width="353" height="822" alt="image" src="https://github.com/user-attachments/assets/ce0be952-6e93-42fa-a726-ad6c0413f62b" />
+
 - **Query Builder**: Drag-and-drop interface  
-  ![Query Builder](<img width="773" height="548" alt="image" src="https://github.com/user-attachments/assets/dc25a0d5-df60-41fb-94d6-f4304c95313a" />)
+  <img width="773" height="548" alt="image" src="https://github.com/user-attachments/assets/dc25a0d5-df60-41fb-94d6-f4304c95313a" />
 
 ---
 
