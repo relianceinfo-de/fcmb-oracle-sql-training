@@ -65,8 +65,8 @@ setup.exe file
 
     In the following steps, you will use the dbca to create an Oracle 19c non-CDB database named 
 orawindb. 
- 1 . Start up winsrv
- 2 . Login to winsrv as oracle 
+ 1 . Start up your device
+ 2 . Login  as oracle 
  3. Open a command prompt window as administrator and issue the following command to verify 
 that no listener is running in the system. 
     or run **lsnrctl status** 
