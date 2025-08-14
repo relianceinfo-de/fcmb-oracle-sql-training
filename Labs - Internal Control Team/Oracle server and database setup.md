@@ -30,7 +30,7 @@ In the following steps, you will install Oracle database 19c software in your de
 We have two drives: C drive and D drive. C drive is dedicated to Windows operating system. We 
 will used D drive for installing Oracle database software and database. It has 100 GB free disk 
 space.
- 11. Download Oracle database 19c installation file for Windows x64 from this link or this link. Its total 
+ 11. Download Oracle database 19c installation file for Windows x64 from this [link](#[Oracle-server-setup](https://www.oracle.com/ae/database/technologies/oracle19c-windows-downloads.html)). Its total 
 size is nearly 3 GB.
 12. Move the installation file to the shared folder configured in your device.
 13. In winsrv, as oracle, create the following directory structure.
