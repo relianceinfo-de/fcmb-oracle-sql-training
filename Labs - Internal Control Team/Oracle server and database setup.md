@@ -1,5 +1,10 @@
 # Oracle server and Database setup Guide
 
+## Table of Contents
+1. [Oracle server setup](#Oracle-server-setup)
+2. [Creating an Oracle Database in the Windows](#Creating-an-Oracle-Database-in-the-Windows)
+
+
 
 
 # Oracle server setup
@@ -78,6 +83,83 @@ that no listener is running in the system.
     <img width="909" height="627" alt="image" src="https://github.com/user-attachments/assets/59cb38dd-8756-4735-a91f-5fdc16aaaccd" />
     <img width="913" height="605" alt="image" src="https://github.com/user-attachments/assets/26ae1c80-6e3a-45f6-b754-76ffae90431b" />
     <img width="898" height="611" alt="image" src="https://github.com/user-attachments/assets/c02ea47e-03e8-4067-8f88-1596e157f73c" />
+
+
+
+  In the command line window, type the following command to open the services window. 
+Observe the OracleOraDB19Home1TNSListener is created and running. 
+services.msc 
+5. Open the properties of the service > click on the “Log On” tab > observe that the service is 
+running as oraclesvc
+7. In the command prompt window, issue the following command to verify that the listener is 
+running. 
+lsnrctl status 
+8. Invoke the dbca utility and respond to its windows as follows. 
+
+<img width="547" height="187" alt="image" src="https://github.com/user-attachments/assets/883206e4-eca5-4876-b9de-57b972101040" />
+<img width="552" height="412" alt="image" src="https://github.com/user-attachments/assets/bc92792b-603c-4065-ae18-2f668eda5213" />
+<img width="547" height="336" alt="image" src="https://github.com/user-attachments/assets/7a18f11f-8485-4288-9a23-32779e940850" />
+<img width="553" height="352" alt="image" src="https://github.com/user-attachments/assets/a7e3a58d-7cb1-4d29-ad48-e7d1a95c66a8" />
+<img width="410" height="336" alt="image" src="https://github.com/user-attachments/assets/bf33790c-21ee-4cd4-a809-4dfee3128909" />
+<img width="588" height="228" alt="image" src="https://github.com/user-attachments/assets/db26aef7-1f54-4a28-9aa2-759e0ccec99a" />
+<img width="567" height="276" alt="image" src="https://github.com/user-attachments/assets/8dd0488e-b91b-4796-a763-7145571d75f4" />
+
+You need to select the database options as follows because they are needed by the sample schema that you will install in the database.
+
+<img width="625" height="393" alt="image" src="https://github.com/user-attachments/assets/25e59de8-f554-48cb-858d-6cf8cbed25f3" />
+<img width="625" height="208" alt="image" src="https://github.com/user-attachments/assets/10403594-864e-401f-9123-349cae0199da" />
+<img width="563" height="232" alt="image" src="https://github.com/user-attachments/assets/424cba99-eca3-4f44-ada8-3e0d1442985f" />
+<img width="327" height="111" alt="image" src="https://github.com/user-attachments/assets/095ebae9-befa-40ae-b609-2d819c5e974c" />
+
+For the following window, we do not need to configure the EM Express in this vm because we will not need it in this vm in the course. In real life scenario, you may consider configuring it.
+
+<img width="566" height="192" alt="image" src="https://github.com/user-attachments/assets/5cbe0232-78cb-4040-b247-20da99237d26" />
+<img width="558" height="287" alt="image" src="https://github.com/user-attachments/assets/6963da63-38f2-4106-bc79-1d3ff744ef9b" />
+
+In the following window, click on “Customize Storage Locations” button. Explore the contents of the popup window. 
+
+<img width="555" height="422" alt="image" src="https://github.com/user-attachments/assets/13a8e6e3-1d6c-439b-949c-746e675fec65" />
+
+**Observe the following in the window:** 
+
+*1. The maximum data files in the database is set by default to 100. For some large databases, 
+this might not be enough and you may need to increase it. This value can hardly be changed 
+after the database is created.*
+
+*2. The size of each redo log group member is 204800 KB, which is equivalent to 200 MB. We 
+have 3 groups. Therefore, 600 MB will be occupied by redo log files. For real life databases, 
+this size could be fair enough or we may need to increase it depending on the transaction 
+generation rate.*
+
+<img width="575" height="428" alt="image" src="https://github.com/user-attachments/assets/6b9d528d-d765-4e79-ad2f-049c90713d45" />
+<img width="575" height="312" alt="image" src="https://github.com/user-attachments/assets/a90302d4-0e63-497c-adc1-9c8cf44fba28" />
+<img width="572" height="232" alt="image" src="https://github.com/user-attachments/assets/75b93a65-091d-460a-8ede-d9e5556fc569" />
+
+In the following window, we want to enable the HR account and set its password. Untick the “Lock 
+Account” flag beside the HR user. Set its password. Then click on OK button. 
+
+<img width="530" height="357" alt="image" src="https://github.com/user-attachments/assets/5880ed3e-16b4-47c3-ae12-7a09c7751c4b" />
+<img width="567" height="432" alt="image" src="https://github.com/user-attachments/assets/c5beb3e4-faf2-44ce-923c-99a24dd519d5" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 
     
