@@ -94,6 +94,7 @@ setup.exe file
   In the command line window, type the following command to open the services window. 
 Observe the OracleOraDB19Home1TNSListener is created and running. 
 services.msc 
+
 6. Open the properties of the service > click on the “Log On” tab > observe that the service is 
 running as oraclesvc
 7. In the command prompt window, issue the following command to verify that the listener is 
