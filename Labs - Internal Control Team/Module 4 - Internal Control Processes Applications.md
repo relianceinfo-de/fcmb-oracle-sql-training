@@ -6,7 +6,7 @@ This module is a hands-on application of your SQL knowledge to real-world intern
 
 ### Exercise 1: Building Reports for Regulatory Compliance
 
-You need to create a report for the compliance department to identify any transactions that exceed a regulatory threshold of $10,000, which may require additional scrutiny.
+You need to create a report for the compliance requirement to identify any transactions that exceed a regulatory threshold of #500,000, which may require additional scrutiny.
 
 **Tasks:**
 
@@ -17,7 +17,7 @@ You need to create a report for the compliance department to identify any transa
 
 ```
 
-3.  Filter the results to only include transactions where the `AMOUNT` is greater than 10000.
+3.  Filter the results to only include transactions where the `AMOUNT` is greater than 500000.
 ```sql
 -- Enter query here..
 
