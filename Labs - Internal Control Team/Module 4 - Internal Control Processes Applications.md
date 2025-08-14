@@ -11,9 +11,18 @@ You need to create a report for the compliance department to identify any transa
 **Tasks:**
 
 1.  Write a query that selects `TRANSACTION_ID`, `ACCOUNT_ID`, `AMOUNT`, and `TRANSACTION_DATE` from the `TRANSACTIONS` table.
+```sql
+-- Enter query here..
 
-2.  Filter the results to only include transactions where the `AMOUNT` is greater than 10000.
 
+```
+
+3.  Filter the results to only include transactions where the `AMOUNT` is greater than 10000.
+```sql
+-- Enter query here..
+
+
+```
 -----
 
 ### Exercise 2: Detecting Anomalies and Potential Fraud
@@ -25,7 +34,11 @@ The fraud detection system needs a report on dormant accounts, which could be a 
 1.  Assume a dormant account is one with no transactions in the last 365 days.
 
 2.  Write a query that identifies all `ACCOUNT_ID`s from the `ACCOUNTS` table that do not have a corresponding transaction in the `TRANSACTIONS` table within the last year.
+```sql
+-- Enter query here..
 
+
+```
 -----
 
 ### Exercise 3: User and Privilege Management
@@ -35,5 +48,14 @@ As part of a security audit, you need to verify that a specific user, 'auditor\_
 **Tasks:**
 
 1.  Write a query to list all roles and privileges granted to the user 'auditor\_user'.
+```sql
+-- Enter query here..
 
+
+```
 2.  Explain why it's important to enforce the principle of least privilege for this user.
+```sql
+-- Comment here..
+
+
+```
