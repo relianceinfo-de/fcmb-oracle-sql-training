@@ -17,7 +17,7 @@ You need to create a report for the compliance requirement to identify any trans
 
 ```
 
-3.  Filter the results to only include transactions where the `AMOUNT` is greater than 500000.
+2.  Filter the results to only include transactions where the `AMOUNT` is greater than 500000.
 ```sql
 -- Enter query here..
 
