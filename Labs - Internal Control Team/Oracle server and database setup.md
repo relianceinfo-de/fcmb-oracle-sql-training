@@ -32,7 +32,7 @@ will used D drive for installing Oracle database software and database. It has 1
 space.
  11. Download Oracle database 19c installation file for Windows x64 from this  [link](https://www.oracle.com/ae/database/technologies/oracle19c-windows-downloads.html). Its total size is nearly 3 GB.
 12. Move the installation file to the shared folder configured in your device.
-13. In winsrv, as oracle, create the following directory structure.
+13. In your device, as oracle, create the following directory structure.
 mkdir D:\oracle\product\19.0.0\db_1
 14. Open the File Explorer > click on the drive mapped to the shared folder (usually it is c drive) > 
 right click on WINDOWS.X64_193000_db_home.zip file and select Extract All > enter the folder 
@@ -61,26 +61,32 @@ setup.exe file
 
 
     # Creating an Oracle Database in the Windows
+    In the following steps, you will use the dbca to create an Oracle 19c non-CDB database named orawindb.
 
-    In the following steps, you will use the dbca to create an Oracle 19c non-CDB database named 
-orawindb. 
- 1 . Start up your device
- 2 . Login  as oracle 
- 3. Open a command prompt window as administrator and issue the following command to verify 
-that no listener is running in the system. 
-    or run **lsnrctl status** 
- 4. Run the following command to invoke Network Configuration Assistant utility. 
-    We created the Listener using the silent mode in the previous section. Now, you will create the 
-    Listener using the netca utility. 
-   Run **netca**
- 5. Respond to the utility windows as follows
+      
+1.  Start up your device
+2.  Login  as oracle
+3. Open a command prompt window as administrator and issue the following command to verify 
+    that no listener is running in the system. or run
+   **lsnrctl status**
+5. Run the following command to invoke Network Configuration Assistant utility. you will create the Listener using the netca utility. Run
+    **netca**
+  
+  
+    Respond to the utility windows as follows
 
     <img width="938" height="622" alt="image" src="https://github.com/user-attachments/assets/ed109f42-a8e0-4642-8606-9e4dd3d743aa" />
+    
     <img width="895" height="616" alt="image" src="https://github.com/user-attachments/assets/2f6b7bf1-f666-44c2-b249-ac5c66d0d46f" />
+    
     <img width="897" height="603" alt="image" src="https://github.com/user-attachments/assets/f87bef0f-e660-4df2-9826-88079ed0dd7d" />
+    
     <img width="855" height="592" alt="image" src="https://github.com/user-attachments/assets/214278ed-ce2c-4bb7-ad75-4398c34f52c5" />
+    
     <img width="909" height="627" alt="image" src="https://github.com/user-attachments/assets/59cb38dd-8756-4735-a91f-5fdc16aaaccd" />
+    
     <img width="913" height="605" alt="image" src="https://github.com/user-attachments/assets/26ae1c80-6e3a-45f6-b754-76ffae90431b" />
+
     <img width="898" height="611" alt="image" src="https://github.com/user-attachments/assets/c02ea47e-03e8-4067-8f88-1596e157f73c" />
 
 
@@ -88,7 +94,7 @@ that no listener is running in the system.
   In the command line window, type the following command to open the services window. 
 Observe the OracleOraDB19Home1TNSListener is created and running. 
 services.msc 
-5. Open the properties of the service > click on the “Log On” tab > observe that the service is 
+6. Open the properties of the service > click on the “Log On” tab > observe that the service is 
 running as oraclesvc
 7. In the command prompt window, issue the following command to verify that the listener is 
 running. 
@@ -110,7 +116,7 @@ You need to select the database options as follows because they are needed by th
 <img width="563" height="232" alt="image" src="https://github.com/user-attachments/assets/424cba99-eca3-4f44-ada8-3e0d1442985f" />
 <img width="327" height="111" alt="image" src="https://github.com/user-attachments/assets/095ebae9-befa-40ae-b609-2d819c5e974c" />
 
-For the following window, we do not need to configure the EM Express in this vm because we will not need it in this vm in the course. In real life scenario, you may consider configuring it.
+For the following window, we do not need to configure the EM Express in this vm because we will not need it in the course. 
 
 <img width="566" height="192" alt="image" src="https://github.com/user-attachments/assets/5cbe0232-78cb-4040-b247-20da99237d26" />
 <img width="558" height="287" alt="image" src="https://github.com/user-attachments/assets/6963da63-38f2-4106-bc79-1d3ff744ef9b" />
