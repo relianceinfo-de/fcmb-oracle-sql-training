@@ -10,17 +10,17 @@ The fraud department has asked you to review all transactions over a certain amo
 
 **Tasks:**
 
-1.  Write a query to retrieve the `TRANSACTION_ID`, `ACCOUNT_ID`, `AMOUNT`, and `TRANSACTION_DATE` for all transactions with an `AMOUNT` greater than $20,000.
+1.  Write a query to retrieve the `TRANSACTION_ID`, `ACCOUNT_ID`, `AMOUNT`, and `TRANSACTION_DATE` for all transactions with an `AMOUNT` greater than N20,000.
    
 ```sql
--- Enter query here..
+-- Enter query here...
 
 
 ```
 2.  Order the results by `TRANSACTION_DATE` in descending order to see the most recent high-value transactions first.
 
 ```sql
--- Enter query here..
+-- Enter query here...
 
 
 ```
@@ -35,14 +35,14 @@ The compliance team needs to know the total transaction volume for each account 
 1.  Using the `TRANSACTIONS` and `ACCOUNTS` tables, calculate the `SUM(AMOUNT)` and `COUNT(*)` of transactions for each `ACCOUNT_TYPE`.
 
 ```sql
--- Enter query here..
+-- Enter query here...
 
 
 ```
 2.  Filter the results to only show account types where the total transaction amount (`SUM(AMOUNT)`) is greater than $100,000.
 
 ```sql
--- Enter query here..
+-- Enter query here...
 
 
 ```
@@ -57,14 +57,14 @@ To trace suspicious activity, you need to combine login data with customer infor
 1.  Write a query using an `INNER JOIN` on `USERS` and `LOGIN_AUDIT` to list `FIRST_NAME`, `LAST_NAME`, and `LOGIN_TIMESTAMP` for all successful logins (`LOGIN_STATUS = 'SUCCESS'`).
 
 ```sql
--- Enter query here..
+-- Enter query here...
 
 
 ```
 2.  Explain why an `INNER JOIN` is the appropriate choice for this specific task.
 
 ```sql
--- Enter query here..
+-- Comment here...
 
 
 ```
